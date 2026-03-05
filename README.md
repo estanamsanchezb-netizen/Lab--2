@@ -4,6 +4,7 @@ En esta práctica de laboratorio se estudiaron tres herramientas fundamentales d
 En la primera parte de la práctica se trabajó la operación de convolución entre un sistema h[n] y una señal de entrada  x[n], los cuales fueron definidos a partir de la unión de los dígitos del código y la cédula de los integrantes. A partir de estas dos secuencias se obtuvo la señal de salida y[n], que corresponde al resultado de la convolución entre x[n] y h[n]. Inicialmente, el cálculo se realizó de forma manual con el objetivo de comprender el procedimiento paso a paso y determinar la secuencia resultante. Posteriormente, el mismo proceso se implementó en Python, lo que permitió verificar los resultados obtenidos y generar la representación gráfica de las señales.
 
 **-Convolución  y grafica manual**
+
 **-Convolución y gráfica en python**
 
 ```python
