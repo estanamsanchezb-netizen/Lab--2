@@ -282,7 +282,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-filepath = "/content/ECG_filtrado__ahorasi_ultimaaaaa20260227_144114.txt"
+filepath = "/content/EOG_filtrado__ahorasi_ultimaaaaa20260227_144114.txt"
 
 # El archivo tiene encabezado tipo: "# Tiempo(s)\tVoltaje(V)"
 data = np.loadtxt(filepath, comments="#")  # ignora líneas que empiezan con "#"
