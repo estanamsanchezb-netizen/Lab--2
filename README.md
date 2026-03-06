@@ -371,6 +371,7 @@ La señal EOG puede clasificarse como aleatoria, ya que depende de los movimient
 <br>
 <img width="1022" height="322" alt="image" src="https://github.com/user-attachments/assets/b37af27c-13a0-4232-a6a3-cd3e2e438296" />
 <br>
+De igual manera, se realizó un histograma de frecuancias:
 
 ```python
 import numpy as np
@@ -441,3 +442,4 @@ plt.xlim(0, fs/2)
 plt.tight_layout()
 plt.show()
 ```
+<img width="875" height="323" alt="image" src="https://github.com/user-attachments/assets/4b060eec-3b1f-45df-a341-877f4efce350" />
