@@ -64,6 +64,7 @@ En esta parte de la práctica se definieron dos señales discretas y se calculó
 
 <img width="446" height="84" alt="image" src="https://github.com/user-attachments/assets/c859626e-e873-4110-b429-75a5a84d563c" />
 
+1. Correlación cruzada entre ambas señales
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -142,6 +143,8 @@ plt.show()
 <br>
 <img width="325" height="327" alt="image" src="https://github.com/user-attachments/assets/ba16b27d-e89f-4588-9bf7-7552abc8ce37" />
 <br>
+2. Grafica de señales normalizada y no normalizada
+
 <img width="878" height="651" alt="image" src="https://github.com/user-attachments/assets/609f4079-52c7-4535-afd3-a53b730a72a0" />
 
 
