@@ -61,6 +61,9 @@ plt.show()
 ## Parte B 
 
 En esta parte de la práctica se definieron dos señales discretas y se calculó su correlación cruzada con el objetivo de analizar la similitud entre ellas. Posteriormente, se procedió a graficar la señal de correlación cruzada tanto normalizada como no normalizada, con el fin de observar su comportamiento.
+
+<img width="446" height="84" alt="image" src="https://github.com/user-attachments/assets/c859626e-e873-4110-b429-75a5a84d563c" />
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
