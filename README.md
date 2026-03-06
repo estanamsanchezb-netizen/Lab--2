@@ -365,4 +365,5 @@ plt.show()
 La señal EOG puede clasificarse como aleatoria, ya que depende de los movimientos oculares y de diferentes fuentes de ruido fisiológico. Aunque algunos movimientos oculares repetidos pueden generar patrones similares, la señal es de origen biológico y puede variar debido a factores como la respuesta individual del paciente o condiciones fisiológicas del momento. Además, se considera aperiódica, porque los movimientos oculares no ocurren en intervalos regulares ni siguen un ciclo repetitivo constante. Finalmente, la señal es originalmente analógica, debido a que proviene de un fenómeno fisiológico continuo en el tiempo; sin embargo, al ser adquirida mediante un sistema de adquisición de datos (DAQ) y posteriormente muestreada para su procesamiento, pasa a representarse en forma digital para su análisis.
 
 <img width="873" height="651" alt="image" src="https://github.com/user-attachments/assets/fc043f37-ffb9-4f0c-b5d2-f505e66e2640" />
-
+<br>
+<img width="1022" height="322" alt="image" src="https://github.com/user-attachments/assets/b37af27c-13a0-4232-a6a3-cd3e2e438296" />
