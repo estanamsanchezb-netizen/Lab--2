@@ -371,6 +371,7 @@ La señal EOG puede clasificarse como aleatoria, ya que depende de los movimient
 <br>
 <img width="1022" height="322" alt="image" src="https://github.com/user-attachments/assets/b37af27c-13a0-4232-a6a3-cd3e2e438296" />
 <br>
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -403,9 +404,6 @@ PSD = (np.abs(X)**2) / (fs * N**2 * U)  # ~ V^2/Hz
 # (Opcional) ignorar el bin 0 Hz para que DC no sesgue
 f_use   = f[1:]
 PSD_use = PSD[1:]
-
-
-
 
 # =========================
 # 3) Histograma de frecuencias (distribución de potencia)
