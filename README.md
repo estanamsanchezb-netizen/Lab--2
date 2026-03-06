@@ -273,7 +273,7 @@ plt.show()
 Para esta señal, se determinó la frecuencia de Nyquist. Se utilizó la frecuencia máxima de la señal EOG que es de aproximadamente de 50 Hz, esta se multiplicó por 2 para obtener la frecuencia de Nyquist (50 Hz* 2 = 100 Hz).  La frecuencia de muestreo es 4 veces la de Nyquist (400Hz).
 <img width="992" height="359" alt="image" src="https://github.com/user-attachments/assets/3d2b3e65-99db-4022-bff9-3514ef209f61" />
 
- Siguiendo, se hallo Media, mediana, desviación estándar, máximo, mínimo  y la  Transformada de Fourier.
+ Siguiendo, se hallo Media, mediana, desviación estándar, máximo, mínimo, la  Transformada de Fourier, densidad espectral de potencia.
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -360,4 +360,9 @@ plt.tight_layout()
 plt.show()
 
 ```
+<img width="291" height="98" alt="image" src="https://github.com/user-attachments/assets/daafe437-0220-4884-b84e-c84a748febca" />
+<br>
 La señal EOG puede clasificarse como aleatoria, ya que depende de los movimientos oculares y de diferentes fuentes de ruido fisiológico. Aunque algunos movimientos oculares repetidos pueden generar patrones similares, la señal es de origen biológico y puede variar debido a factores como la respuesta individual del paciente o condiciones fisiológicas del momento. Además, se considera aperiódica, porque los movimientos oculares no ocurren en intervalos regulares ni siguen un ciclo repetitivo constante. Finalmente, la señal es originalmente analógica, debido a que proviene de un fenómeno fisiológico continuo en el tiempo; sin embargo, al ser adquirida mediante un sistema de adquisición de datos (DAQ) y posteriormente muestreada para su procesamiento, pasa a representarse en forma digital para su análisis.
+
+<img width="873" height="651" alt="image" src="https://github.com/user-attachments/assets/fc043f37-ffb9-4f0c-b5d2-f505e66e2640" />
+
