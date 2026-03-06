@@ -147,6 +147,6 @@ plt.show()
 
 <img width="878" height="651" alt="image" src="https://github.com/user-attachments/assets/609f4079-52c7-4535-afd3-a53b730a72a0" />
 
-
+3. ¿En qué situaciones resulta útil aplicar la correlación cruzada en el procesamiento digital de señales?
 
 ## Parte C 
