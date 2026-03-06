@@ -370,3 +370,76 @@ La señal EOG puede clasificarse como aleatoria, ya que depende de los movimient
 <img width="873" height="651" alt="image" src="https://github.com/user-attachments/assets/fc043f37-ffb9-4f0c-b5d2-f505e66e2640" />
 <br>
 <img width="1022" height="322" alt="image" src="https://github.com/user-attachments/assets/b37af27c-13a0-4232-a6a3-cd3e2e438296" />
+<br>
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# =========================
+# 0) Cargar datos
+# =========================
+filepath = "/content/ECG_filtrado__ahorasi_ultimaaaaa20260227_144114.txt"
+data = np.loadtxt(filepath, comments="#")
+t = data[:, 0]
+x = data[:, 1]
+
+dt = np.median(np.diff(t))
+fs = 1.0 / dt
+N  = len(x)
+
+# =========================
+# 1) PSD (base para estadísticos)
+# =========================
+x0 = x - np.mean(x)          # quitar DC
+w  = np.hanning(N)           # ventana (reduce leakage)
+xw = x0 * w
+
+X = np.fft.rfft(xw)
+f = np.fft.rfftfreq(N, d=dt)
+
+U = (1/N) * np.sum(w**2)     # potencia de la ventana
+PSD = (np.abs(X)**2) / (fs * N**2 * U)  # ~ V^2/Hz
+
+# (Opcional) ignorar el bin 0 Hz para que DC no sesgue
+f_use   = f[1:]
+PSD_use = PSD[1:]
+
+
+
+
+# =========================
+# 3) Histograma de frecuencias (distribución de potencia)
+# =========================
+# Histograma PESADO: suma de PSD dentro de cada bin de frecuencia
+num_bins = 50
+bins = np.linspace(0, fs/2, num_bins+1)
+
+hist_power, edges = np.histogram(f_use, bins=bins, weights=PSD_use)
+bin_centers = 0.5 * (edges[:-1] + edges[1:])
+
+plt.figure(figsize=(10,4))
+
+# Barras con color bonito + borde
+plt.bar(
+    bin_centers,
+    hist_power,
+    width=np.diff(edges),
+    align="center",
+    color="#4C78A8",      # azul elegante
+    edgecolor="#1F2D3D",  # borde oscuro
+    linewidth=0.8,
+    alpha=0.85
+)
+
+# Línea encima (opcional, se ve bien para “tendencia”)
+plt.plot(bin_centers, hist_power, color="#F58518", linewidth=2)
+
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Potencia acumulada en el bin (≈ V²)")
+plt.title("Histograma de frecuencias (ponderado por PSD)")
+plt.grid(True, alpha=0.25)
+plt.xlim(0, fs/2)
+
+plt.tight_layout()
+plt.show()
+```
