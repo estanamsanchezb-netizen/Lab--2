@@ -7,10 +7,10 @@ En la primera parte de la práctica se trabajó la operación de convolución en
 
 <img width="517" height="727" alt="image" src="https://github.com/user-attachments/assets/71a154f4-303f-489b-a994-e12b7ddb9443" />
 
-
+<br>
 <img width="481" height="130" alt="image" src="https://github.com/user-attachments/assets/b90bfdbb-dc02-460d-a23c-df8bdd76222c" />
 
-
+<br>
 <img width="535" height="821" alt="image" src="https://github.com/user-attachments/assets/e4d2da6a-933e-492b-bfda-ab05b180f504" />
 
 **-Convolución y gráfica en python**
