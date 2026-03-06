@@ -163,7 +163,7 @@ import datetime
 import time
 from scipy import signal  
 
-fs = 100        
+fs = 400        
 canal = "Dev6/ai0"    
 tamano_bloque = int(fs * 0.05)   
 ventana_tiempo = 5.0             
@@ -270,3 +270,94 @@ ani = FuncAnimation(fig, actualizar, interval=50, blit=True)
 plt.tight_layout()
 plt.show()
 ```
+Para esta señal, se determinó la frecuencia de Nyquist. Se utilizó la frecuencia máxima de la señal EOG que es de aproximadamente de 50 Hz, esta se multiplicó por 2 para obtener la frecuencia de Nyquist (50 Hz* 2 = 100 Hz).  La frecuencia de muestreo es 4 veces la de Nyquist (400Hz).
+<img width="992" height="359" alt="image" src="https://github.com/user-attachments/assets/3d2b3e65-99db-4022-bff9-3514ef209f61" />
+
+ Siguiendo, se hallo Media, mediana, desviación estándar, máximo, mínimo  y la  Transformada de Fourier.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+filepath = "/content/ECG_filtrado__ahorasi_ultimaaaaa20260227_144114.txt"
+
+# El archivo tiene encabezado tipo: "# Tiempo(s)\tVoltaje(V)"
+data = np.loadtxt(filepath, comments="#")  # ignora líneas que empiezan con "#"
+t = data[:, 0]
+x = data[:, 1]
+
+# Frecuencia de muestreo (se infiere del paso temporal)
+dt = np.median(np.diff(t))
+fs = 1.0 / dt
+
+
+
+# =========================
+# 1) Caracterización (a)
+# =========================
+media   = np.mean(x)
+mediana = np.median(x)
+std     = np.std(x, ddof=1)   # desviación estándar muestral
+xmin    = np.min(x)
+xmax    = np.max(x)
+
+print("\n--- Caracterización estadística ---")
+print(f"Media:               {media:.6f} V")
+print(f"Mediana:             {mediana:.6f} V")
+print(f"Desviación estándar: {std:.6f} V")
+print(f"Mínimo:              {xmin:.6f} V")
+print(f"Máximo:              {xmax:.6f} V")
+
+# Señal en el tiempo (CYAN)
+plt.figure(figsize=(10,4))
+plt.plot(t, x, color="#00C2D1", linewidth=2)   # cyan
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Voltaje (V)")
+plt.title("Señal en el dominio del tiempo")
+plt.grid(True, alpha=0.25)
+plt.tight_layout()
+plt.show()
+
+# =========================
+# 2) FFT y espectro (a)
+# =========================
+N = len(x)
+
+# Quitar DC para que el pico en 0 Hz no domine
+x0 = x - np.mean(x)
+
+# Ventana (reduce leakage). Si no la quieres, comenta estas 2 líneas.
+w = np.hanning(N)
+xw = x0 * w
+
+# FFT de un solo lado (rfft) y su eje de frecuencias
+X = np.fft.rfft(xw)
+f = np.fft.rfftfreq(N, d=dt)
+
+# Magnitud (normalización simple para visualizar)
+mag = np.abs(X) / N
+
+# ===== 1) FFT magnitud (MORADO) =====
+plt.figure(figsize=(10,4))
+plt.plot(f, mag, color="#7B2CBF", linewidth=2.2)   # morado
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("|X(f)| (magnitud)")
+plt.title("Transformada de Fourier (magnitud, 1 lado)")
+plt.grid(True, alpha=0.25)
+plt.xlim(0, fs/2)
+plt.tight_layout()
+plt.show()
+
+# ===== 2) PSD (VERDE) =====
+plt.figure(figsize=(10,4))
+plt.plot(f, PSD, color="#2A9D8F", linewidth=2.2)   # verde
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("PSD (V²/Hz)")
+plt.title("Densidad espectral de potencia (PSD)")
+plt.grid(True, alpha=0.25)
+plt.xlim(0, fs/2)
+plt.tight_layout()
+plt.show()
+
+```
+La señal EOG puede clasificarse como aleatoria, ya que depende de los movimientos oculares y de diferentes fuentes de ruido fisiológico. Aunque algunos movimientos oculares repetidos pueden generar patrones similares, la señal es de origen biológico y puede variar debido a factores como la respuesta individual del paciente o condiciones fisiológicas del momento. Además, se considera aperiódica, porque los movimientos oculares no ocurren en intervalos regulares ni siguen un ciclo repetitivo constante. Finalmente, la señal es originalmente analógica, debido a que proviene de un fenómeno fisiológico continuo en el tiempo; sin embargo, al ser adquirida mediante un sistema de adquisición de datos (DAQ) y posteriormente muestreada para su procesamiento, pasa a representarse en forma digital para su análisis.
