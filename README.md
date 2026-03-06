@@ -153,7 +153,9 @@ plt.show()
 La correlación cruzada resulta útil para comparar dos señales y determinar su grado de similitud y el desplazamiento temporal entre ellas. Se aplica a la detección de retardos, a la sincronización de señales, a la búsqueda de patrones conocidos dentro de una señal y al análisis de señales biomédicas, como ECG o EEG. También identifica patrones, lo que es muy útil en imágenes médicas para la detección de tumores o anomalías. 
 
 <img width="157" height="881" alt="image" src="https://github.com/user-attachments/assets/da570e05-8e92-46b2-8810-021e40d55a0c" />
+<br>
  Imagen 2.  Diagrama de flujo parte B
+ 
 ## Parte C 
  En esta parte se realizo la captura de una señal EOG (electrooculograma) del generador de señales con ayuda del DAQ. se uso el siguiente codigo para su captura 
  ```python
