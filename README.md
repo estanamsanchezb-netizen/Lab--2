@@ -470,3 +470,7 @@ plt.show()
 <img width="425" height="72" alt="image" src="https://github.com/user-attachments/assets/86a5a2e4-2a2e-49a7-81eb-62195a12f8d3" />
 <br>
 <img width="875" height="323" alt="image" src="https://github.com/user-attachments/assets/4b060eec-3b1f-45df-a341-877f4efce350" />
+<br>
+<img width="242" height="895" alt="image" src="https://github.com/user-attachments/assets/d7758964-a48a-4a70-b03b-efef4ccd7a4c" />
+
+Imagen 3. Diagrma de flujo parte C
