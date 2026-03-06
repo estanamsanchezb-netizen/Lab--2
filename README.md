@@ -138,4 +138,12 @@ plt.grid(True, alpha=0.25)
 plt.tight_layout()
 plt.show()
 ```
+<img width="892" height="414" alt="image" src="https://github.com/user-attachments/assets/c3edec83-28a7-48a4-9ed9-cc18e9b7ceaa" />
+<br>
+<img width="325" height="327" alt="image" src="https://github.com/user-attachments/assets/ba16b27d-e89f-4588-9bf7-7552abc8ce37" />
+<br>
+<img width="878" height="651" alt="image" src="https://github.com/user-attachments/assets/609f4079-52c7-4535-afd3-a53b730a72a0" />
+
+
+
 ## Parte C 
