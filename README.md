@@ -48,7 +48,7 @@ plt.show()
 <img width="705" height="474" alt="image" src="https://github.com/user-attachments/assets/20c7e629-9331-49b2-a763-8c115ed1d374" />
 <br>
 <img width="217" height="513" alt="image" src="https://github.com/user-attachments/assets/c1bd2083-9b68-458c-bd2a-3db0c3d20e2a" />
-
+ Imagen 3.  Diagrama de flujo parte A
 
 ## Parte B 
 ## Parte C 
