@@ -149,6 +149,8 @@ plt.show()
 <br>
 3. ¿En qué situaciones resulta útil aplicar la correlación cruzada en el procesamiento digital de señales?
 
+La correlación cruzada resulta útil para comparar dos señales y determinar su grado de similitud y el desplazamiento temporal entre ellas. Se aplica a la detección de retardos, a la sincronización de señales, a la búsqueda de patrones conocidos dentro de una señal y al análisis de señales biomédicas, como ECG o EEG. También identifica patrones, lo que es muy útil en imágenes médicas para la detección de tumores o anomalías. 
+
 ## Parte C 
  En esta parte se realizo la captura de una señal EOG (electrooculograma) del generador de señales con ayuda del DAQ. se uso el siguiente codigo para su captura 
  ```python
@@ -189,7 +191,7 @@ def hilo_lectura():
     task.ai_channels.add_ai_voltage_chan(canal)
     task.timing.cfg_samp_clk_timing(rate=fs, sample_mode=AcquisitionType.CONTINUOUS)
     task.start()
-    print(f"\n▶️ Adquisición iniciada en {canal} ({fs} Hz).")
+    print(f"\n Adquisición iniciada en {canal} ({fs} Hz).")
 
     while not detener_hilo.is_set():
         if adquiriendo.is_set():
@@ -219,7 +221,7 @@ def iniciar(event):
             thread_lectura = Thread(target=hilo_lectura, daemon=True)
             thread_lectura.start()
         adquiriendo.set()
-        print("▶️ Grabando...")
+        print(" Grabando...")
 
 def detener(event):
     """Detiene y guarda los datos."""
