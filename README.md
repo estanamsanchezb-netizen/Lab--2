@@ -149,6 +149,7 @@ plt.show()
 <br>
 3. ¿En qué situaciones resulta útil aplicar la correlación cruzada en el procesamiento digital de señales?
 
+
 La correlación cruzada resulta útil para comparar dos señales y determinar su grado de similitud y el desplazamiento temporal entre ellas. Se aplica a la detección de retardos, a la sincronización de señales, a la búsqueda de patrones conocidos dentro de una señal y al análisis de señales biomédicas, como ECG o EEG. También identifica patrones, lo que es muy útil en imágenes médicas para la detección de tumores o anomalías. 
 
 ## Parte C 
