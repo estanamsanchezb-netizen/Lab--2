@@ -147,6 +147,10 @@ plt.show()
 
 <img width="878" height="651" alt="image" src="https://github.com/user-attachments/assets/609f4079-52c7-4535-afd3-a53b730a72a0" />
 <br>
+
+
+La secuencia de correlación cruzada normalizada obtenida muestra que la mayor similitud entre las dos señales se presenta en el desplazamiento K=-2 , donde se observa el valor positivo más alto, lo que indica que una de las señales coincide mejor con la otra cuando se desplaza dos muestras. También se evidencian valores negativos para otros retardos, especialmente alrededor de k=2 lo que sugiere una relación inversa en esos puntos. Además, como en k=0 la correlación es cercana a cero, se puede interpretar que sin desplazamiento no existe una coincidencia importante entre ambas señales. En general, el resultado permite concluir que las señales están relacionadas, pero desfasadas en el tiempo.
+
 3. ¿En qué situaciones resulta útil aplicar la correlación cruzada en el procesamiento digital de señales?
 
 
