@@ -59,4 +59,80 @@ plt.show()
  Imagen 3.  Diagrama de flujo parte A
 
 ## Parte B 
+
+En esta parte de la práctica se definieron dos señales discretas y se calculó su correlación cruzada con el objetivo de analizar la similitud entre ellas. Posteriormente, se procedió a graficar la señal de correlación cruzada tanto normalizada como no normalizada, con el fin de observar su comportamiento.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# -----------------------------
+# Datos del enunciado
+# -----------------------------
+Ts = 1.25e-3          # 1.25 ms
+f  = 100.0            # 100 Hz
+N  = 9
+n  = np.arange(0, N)  # 0 <= n < 9  ->  n = 0,1,...,8
+t  = n * Ts
+
+# Señales
+x1 = np.cos(2*np.pi*f*t)
+x2 = np.sin(2*np.pi*f*t)
+
+# -----------------------------
+# 1) Correlación cruzada
+# Definición usada:
+# r12[k] = sum_n x1[n] * x2[n-k]
+# (np.correlate(x1,x2,'full') entrega exactamente esa correlación para señales reales)
+# -----------------------------
+r12  = np.correlate(x1, x2, mode="full")
+lags = np.arange(-(N-1), (N-1)+1)   # k = -8,...,0,...,+8
+
+# normalizada, [-1,1]
+r12_norm = r12 / (np.linalg.norm(x1)*np.linalg.norm(x2))
+
+# Mostrar valores
+print("x1[n] =", np.round(x1, 6))
+print("x2[n] =", np.round(x2, 6))
+
+print("\n--- r12[k] (no normalizada) ---")
+for k, val in zip(lags, r12):
+    print(f"k={k:>2d}  r12={val: .6f}")
+
+print("\n--- r12[k] (normalizada) ---")
+for k, val in zip(lags, r12_norm):
+    print(f"k={k:>2d}  r12_norm={val: .6f}")
+
+
+# -----------------------------
+# 2) Representación gráfica 
+# -----------------------------
+
+# Colores rosados
+pink_line  = "#FF4D8D"
+pink_fill  = "#FF8FB8"
+
+# 1) No normalizada
+plt.figure(figsize=(10,4))
+m1, s1, b1 = plt.stem(lags, r12, basefmt=" ")
+plt.setp(m1, color=pink_line, markersize=6)
+plt.setp(s1, color=pink_fill, linewidth=2)
+plt.xlabel("Lag k (muestras)")
+plt.ylabel(r"$r_{x_1x_2}[k]$")
+plt.title("Correlación cruzada (no normalizada)")
+plt.grid(True, alpha=0.25)
+plt.tight_layout()
+plt.show()
+
+# 2) Normalizada
+plt.figure(figsize=(10,4))
+m2, s2, b2 = plt.stem(lags, r12_norm, basefmt=" ")
+plt.setp(m2, color=pink_line, markersize=6)
+plt.setp(s2, color=pink_fill, linewidth=2)
+plt.xlabel("Lag k (muestras)")
+plt.ylabel(r"$r_{x_1x_2}[k]$ (normalizada)")
+plt.title("Correlación cruzada (normalizada)")
+plt.grid(True, alpha=0.25)
+plt.tight_layout()
+plt.show()
+```
 ## Parte C 
