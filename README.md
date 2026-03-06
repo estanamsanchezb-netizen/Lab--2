@@ -366,6 +366,7 @@ plt.xlim(0, fs/2)
 plt.tight_layout()
 plt.show()
 
+
 ```
 <img width="291" height="98" alt="image" src="https://github.com/user-attachments/assets/daafe437-0220-4884-b84e-c84a748febca" />
 <br>
@@ -410,8 +411,28 @@ PSD = (np.abs(X)**2) / (fs * N**2 * U)  # ~ V^2/Hz
 f_use   = f[1:]
 PSD_use = PSD[1:]
 
+
+
 # =========================
-# 3) Histograma de frecuencias (distribución de potencia)
+# 3) Estadísticos en frecuencia
+# =========================
+# media
+f_media = np.sum(f * mag) / np.sum(mag)
+print(f"Frecuencia media: {f_media} Hz")
+
+# mediana
+mag_acumulativa = np.cumsum(mag)
+total_mag = mag_acumulativa[-1]
+f_mediana = f[np.searchsorted(mag_acumulativa, total_mag / 2)]
+print(f"Frecuencia mediana: {f_mediana} Hz")
+
+# desviacion estandar
+f_std = np.sqrt(np.sum(mag * (f - f_media)**2) / np.sum(mag))
+print(f"Desviación estándar: {f_std} Hz")
+
+
+# =========================
+# 4) Histograma de frecuencias (distribución de potencia)
 # =========================
 # Histograma PESADO: suma de PSD dentro de cada bin de frecuencia
 num_bins = 50
